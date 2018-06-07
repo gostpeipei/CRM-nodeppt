@@ -21,7 +21,7 @@ theme: moon
 * 可优化部分
 
 [slide]
-<h2 style="text-align: left;"><span class="yellow">1.项目流程简介</span></h2> 
+<h2><span class="yellow">1.项目流程简介</span></h2> 
 
 [slide]
 ## CRM: Customer Relationship Management - 客户管理系统
@@ -29,14 +29,13 @@ theme: moon
 
 [slide]
 ## 过程概述
-1. 线索录入(目标客户群的信息) <i class="fa fa-arrow-down"></i><br> {:&.rollIn}
+1. 线索录入(目标客户群的信息), 客服跟进<i class="fa fa-arrow-down"></i><br> {:&.rollIn}
   - 行业、联系方式、来源、状态等
-2. 创建商机 <i class="fa fa-arrow-down"></i><br>
+2. 直销、渠道人员介入, 创建商机 <i class="fa fa-arrow-down"></i><br>
   - 目标客户转为意向客户
-3. 签订合同 <i class="fa fa-arrow-down"></i>
-4. 成为客户 <i class="fa fa-arrow-down"></i>
-5. 建立各种订单<br>
-  - 包括：充值、领款、退款、返现...
+3. 签订合同, 成为客户 <i class="fa fa-arrow-down"></i>
+4. 建立各种订单<br>
+  - 包括：充值、领款、退款、返现、返货...
 
 
 [slide]
@@ -44,7 +43,7 @@ theme: moon
 
 * 运营管理模块：管理各种类型的广告项目
 * 业务管理模块：线索废弃库、垫款资金池、代理商...
-* 报表管理模块<span class="red">*</span>：查询和导出相关报表
+* 报表管理模块：查询和导出相关报表 (客户消耗、销售业绩、资金池...)
 * 系统管理模块：人员管理、权限分配等
 
 [slide]
@@ -53,7 +52,7 @@ theme: moon
 [slide]
 ## `前端主要技术栈`
 
-> CRM: 目前项目未前后端分离，前端依赖Node环境，后端接口也由Node编写，使用express框架，页面采用服务端渲染。
+> CRM: 目前项目未采用前后端分离，页面采用服务端渲染，前端依赖Node环境，后端接口也由Node编写，使用express框架。
 
 
 ---
@@ -73,9 +72,9 @@ theme: moon
 [slide]
 <pre><code class="markdown">/* 项目一级目录 */
   |-- bin/www（脚本入口文件）
-  |-- common/（存放了配置路由时封装的一些方法）
+  |-- common/MJJS.js（存放了配置路由时封装的一些方法）
   |-- node_modules/（使用npm包管理工具安装的模块）
-  |-- package.json (npm依赖包配置文件)
+  |-- package.json (npm包配置文件)
   |-- public/（静态资源文件,包括样式,字体文件,图片,js）
     |-- css/ (less编译后的样式文件)
     |-- file/ (一些表格文件模板)
@@ -99,7 +98,7 @@ theme: moon
 
 
 [slide]
-<h2><span class="yellow">4.内部封装插件的使用</span></h2>
+<h2><span class="yellow">4.内部封装插件的使用(MJJS, iFilter, iTable)</span></h2>
 
 [slide]
 ## MJJS.js
@@ -192,7 +191,7 @@ MJJS.ui.iTable('#advTable', {
 <h2><span class="yellow">5.项目开发/测试/上线流程概述</span></h2>
 
 [slide]
-<h3 style="text-align: left;">代码: <span class="yellow" style="font-size: 0.8em;">http:&frasl;&frasl;stash.weimob.com/scm/mjad/mjad_crm.git</span></h3>
+<h3 style="text-align: left;">代码仓库: <span class="yellow" style="font-size: 0.8em;">http:&frasl;&frasl;stash.weimob.com/scm/mjad/mjad_crm.git</span></h3>
 <h3 style="text-align: left;">后台接口: <span class="yellow" style="font-size: 0.8em;">http:&frasl;&frasl;115.159.219.170:8081/swagger-ui.html</span></h3>
 <h3 style="text-align: left;"> 生产环境: <span class="yellow" style="font-size: 0.8em;">http:&frasl;&frasl;crm.mjmobi.com</span></h3>
 <h3 style="text-align: left;"> dev环境: <span class="yellow" style="font-size: 0.8em;">http:&frasl;&frasl;mjcrm-dev.weimob.com </span></h3>
@@ -225,7 +224,7 @@ MJJS.ui.iTable('#advTable', {
 
 <p align="left">
 <span style="width:10%;text-align:left;"><strong>解决方案: </strong></span>
-<span style="width:80%; display: inline-block;vertical-align: top;text-align: left;">制定严格的规范,如:给非npm安装的外部依赖固定位置</span>
+<span style="width:80%; display: inline-block;vertical-align: top;text-align: left;">制定严格的规范, 如:给定外部依赖静态资源固定位置</span>
 </p>
 
 [slide]
@@ -274,7 +273,7 @@ MJJS.namespace = function(name, sep) {
 </p>
 
 [slide]
-<h3 align="left"><code>问题C</code> 第三方静态资源和页面中的js混在一起不容易区分</h3>
+<h3 align="left"><code>问题C</code> 第三方静态资源和项目页面对应的js混在一起不容易区分</h3>
 
 <p align="left">
 <span style="width:10%;text-align:left;"><strong>原因: </strong></span>
